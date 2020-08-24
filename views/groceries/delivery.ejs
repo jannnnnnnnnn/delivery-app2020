@@ -1,0 +1,62 @@
+<%- include('../partials/header') %> <%- include('../partials/successmsg') %>
+<div class="row">
+  <form action="/users/delivery" class="col s12" method="POST">
+    <div class="row">
+      <div class="input-field col s6">
+        <input type="date" name="date" required />
+        <label>Delivery Time</label>
+      </div>
+      <div class="input-field col s6">
+        <select name="timeslot" required>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">6:00am-11:00am</option>
+          <option value="2">11:00am-4:00pm</option>
+          <option value="3">4:00pm-9:00pm</option>
+        </select>
+        <label>Time Slots</label>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-large" value="Add" />
+  </form>
+</div>
+<h5>You Current Delivery Availability</h5>
+<table style="background-color: white;">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Day of the week</th>
+      <th>Time Slot Period</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (user.deliverytimes.length>0){ %> <%
+    deliverytimes.forEach(function(s){ %>
+    <tr>
+      <td>
+        <%- include('../functions/monthToWord', {monthNo:s.date.getMonth()}) %>
+        <%= s.date.getDate() %>, <%= s.date.getFullYear() %>
+      </td>
+      <td>
+        <%- include('../functions/dayToWord', {dayNo:s.date.getDay()}) %>
+      </td>
+      <td>
+        <% if (s.timeslot == 1){ %>
+        6:00 am - 11:00 am
+        <% } else if (s.timeslot == 2){ %>
+        11:00 am - 4:00 pm
+        <% } else { %>
+        4:00 pm -9:00 pm
+        <% } %>
+      </td>
+      <td>
+        <form action="/users/delivery/<%= s.id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" />
+        </form>
+      </td>
+    </tr>
+    <% }) %> <% } %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

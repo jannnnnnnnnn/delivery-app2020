@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+<%- include('../partials/successmsg') %>
+<% if (orders.length>0){ %> <% orders.forEach(function(order){ %>
+<div class="card small">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="/images/groceries_background.jpg" style="background-color: black;" />
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Order Placed On <%= order.createdAt %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <i class="material-icons right">more_vert</i>
+      <small>Total: $<%= order.subtotal %></small>
+    </span>
+    <p>
+      Order Status: <%= order.status ? 'Delivered':'We will be there soon' %>
+    </p>
+    <% if (order.deliveryDate.length>0){ %>
+    <p>
+      Delivery Date: <%= order.deliveryDate[0].date %>,
+      <% if (order.deliveryDate[0].timeslot == 1){ %>
+      6:00 am - 11:00 am
+      <% } else if (order.deliveryDate[0].timeslot == 2){ %>
+      11:00 am - 4:00 pm
+      <% } else { %>
+      4:00 pm -9:00 pm
+      <% } %>
+    </p>
+    <% } %>
+    <% if (user.accounttype=="Shopper" && (order.deliveryDate.length==0)){ %>
+    <br>
+    <p><a href="/users/orders/<%= order.id %>">Assign a Driver to my Order</a></p>
+    <% } else if (user.accounttype=="Driver" && order.status == false){%>
+    <p><a href="/users/deliverystatus/<%= order.id %>">Delivery Completed</a></p>
+
+    <% } %>
+
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Order Placed<i class="material-icons right">close</i></span>
+    <% if(order.products.length>0){ %> <%
+    order.products.forEach(function(product){ %>
+    <div class="col s12 m7">
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="<%= product.image %>" style="width: 100px; height: 100px;" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><%= product.label.toUpperCase() %></p>
+            <p><%= product.price %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %> <% } %>
+  </div>
+</div>
+<% }) %> <% } else { %>
+<p>You haven't made an order yet</p>
+
+<% } %> <%- include('../partials/footer') %>

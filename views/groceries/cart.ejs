@@ -1,0 +1,30 @@
+<%- include('../partials/header') %> <%- include('../partials/successmsg') %>
+<table>
+
+  <tbody>
+    <%
+if (user.shoppingcart.length>0){ %> <% user.shoppingcart.forEach(function(item){
+%>
+    <tr>
+      <td><img src="<%= item.image %>" alt="" width="100" height="100"></td>
+      <td>
+        <h5><%= item.label.toUpperCase() %></h5>
+      </td>
+      <td>
+        <h5>$<%= item.price %></h5>
+      </td>
+      <td>
+        <form action="/users/shoppingcart/<%= item.id %>?_method=DELETE" method="POST">
+          <button class="btn waves-effect waves-light" type="submit" name="action">
+
+            <i class="material-icons">delete_forever</i></button>
+        </form>
+      </td>
+    </tr>
+
+    <% }) %> <% } %>
+  </tbody>
+</table>
+<a href="/users/shoppingcart/checkout" class="waves-effect waves-light btn-large right">Check Out</a>
+<p class="bottom-space"></p>
+<%- include('../partials/footer') %>

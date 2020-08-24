@@ -1,0 +1,44 @@
+<%- include('../partials/header') %> <%- include('../partials/successmsg') %>
+<div class="row">
+  <form class="col s12" action="/" method="GET">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">search</i>
+        <input type="text" name="ingr" class="" placeholder="Enter a Product" />
+        <label></label>
+      </div>
+      <div class="input-field col s6">
+        <input class="btn btn-large" type="submit" value="Search" />
+      </div>
+    </div>
+  </form>
+</div>
+
+<% if (productData){ %>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-image">
+      <img src="<%= productData.image %>" />
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <h4><%= productData.label.toUpperCase() %></h4>
+        <h5>Nutrition Facts</h5>
+        <p>Energy (KCAL): <%= productData.nutrients.ENERC_KCAL %></p>
+        <p>Protein: <%= productData.nutrients.PROCNT %></p>
+        <p>Fat: <%= productData.nutrients.FAT %></p>
+        <p>Carbohydrate: <%= productData.nutrients.CHOCDF %></p>
+        <p>Fiber: <%= productData.nutrients.FIBTG %></p>
+        <h5>$<%= productData.category %></h5>
+      </div>
+      <div class="card-action">
+        <form action="/" method="POST">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Add to Cart
+            <i class="material-icons right">add_shopping_cart</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %> <%- include('../partials/footer') %>

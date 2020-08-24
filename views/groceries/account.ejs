@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+<%- include('../partials/successmsg') %>
+<div class="row">
+    <form class="col s12" action="/users/account" method="POST">
+        <div class="row">
+            <div class="col s6">
+                <label>Account Type</label>
+                <select name="accounttype" class="browser-default" required
+                    <%= user.accounttype == " " ? '' : 'disabled' %>>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="Shopper" <%= user.accounttype == "Shopper" ? "selected" : '' %>>Shopper</option>
+                    <option value="Driver" <%= user.accounttype == "Driver" ? "selected" : '' %>>Driver</option>
+                </select>
+            </div>
+            <div class="col s6">
+                <label>My Favorite Store</label>
+                <select name="store" class="browser-default" required>
+                    <option value="Walmart" <%= user.store == 'Walmart' ? 'selected' : ''%>>Walmart</option>
+                    <option value="Costco" <%= user.store == 'Costco' ? 'selected' : ''%>>Costco</option>
+                    <option value="Longos" <%= user.store == 'Longos' ? 'selected' : ''%>>Longos</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <label>First Name</label>
+                <input type="text" name="firstname" value="<%= user.firstname %>" required><br>
+            </div>
+            <div class="col s6">
+                <label>Last Name</label>
+                <input type="text" name="lastname" value="<%= user.lastname %>" required><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <label>Address</label>
+                <input type="text" name="address" value="<%= user.address %>" required><br>
+            </div>
+            <div class="col s6">
+                <label>City</label>
+                <input type="text" name="city" value="<%= user.city %>" required><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <label>Postal Code</label>
+                <input type="text" name="postalcode" value="<%= user.postalcode %>" required><br>
+            </div>
+            <div class="col s6">
+                <label>Country</label>
+                <select name="country" class="browser-default" value="<%= user.country %>" required>
+                    <option value="Canada" <%= user.country == 'Canada' ? 'selected' : ''%>>Canada</option>
+                    <option value="US" <%= user.country == 'US' ? 'selected' : ''%>>US</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+<%- include('../partials/footer') %>
