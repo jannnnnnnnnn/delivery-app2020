@@ -17,7 +17,7 @@ const userSchema = new Schema(
   {
     googleId: String,
     firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
+    lastname: { type: String },
     address: { type: String },
     city: { type: String },
     postalcode: String,

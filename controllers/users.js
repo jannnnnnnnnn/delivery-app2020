@@ -24,7 +24,6 @@ const deliveryShow = (req, res, next) => {
   });
 };
 
-//this function has issues
 const index = (req, res, next) => {
   User.find({}, function (err, users) {
     if (err) return err;
