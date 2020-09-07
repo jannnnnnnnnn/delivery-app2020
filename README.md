@@ -6,15 +6,17 @@
 
 ## Description
 
-Neighbourhood Grocery Delivery is a web application that matches shoppers and drivers to make grocery ordering and delivery work seamlessly on a local level.
+Neighbourhood Grocery Delivery is a web application that matches Shoppers and Drivers to make grocery ordering and delivery work seamlessly on a local level.
 
-A **"Shopper"** can add grocery items from their favourite local store to their shopping cart and get them delivered to their doorstep depending on the shopper's availability.
+A **"Shopper"** can add grocery items from their favourite local store to their shopping cart and get them delivered to their doorstep depending on the Shopper's availability.
 
-A **"Driver"** gets orders assigned to them based on their availability. The diver can also update the order's delivery status, which would be reflected in the shopper's orders view.
+A **"Driver"** gets orders assigned to them based on their availability. The diver can also update the order's delivery status, which would be reflected in the Shopper's orders view.
 
 **API challenges**: This APP currently uses an open-source API to display products. Since this API does not respond with a price, \$10 is assigned to all products for demonstration purposes. For deployment implementation, the app should include API from real grocery stores.
 
-**Delivery assignments**: This APP assigns orders to drivers by comparing Shopper's delivery availabilities (at least two days from today, starting from the closest ones) with all the Driver's delivery availability and assign orders. For app testing, please choose Sep 1, 2021, as one of the shopper's delivery availabilities.
+**Delivery assignments**: This APP assigns orders to Drivers by comparing Shopper's delivery availabilities (at least two days from today, starting from the closest ones) with all the Driver's delivery availability and assign orders.
+
+**Important for testing**Please choose Sep 1, 2021, as one of the Shopper's delivery availabilities for testing.
 
 ## Technologies Used
 
@@ -43,10 +45,10 @@ To provide insight of how the application was developed, the following sections 
 **_1. Project Requirements_** <a name="requirements"></a>
 
 - Technology: Node / Express / MongoDB
-- Have at least 2 data entities (embedded or referenced)
+- Have data entities (embedded and referenced)
 - CRUD Application
-- Be deployed online (Heroku).
-- Project timeline: 4 Days
+- Be deployed online
+- Project length: 4 Days
 
 **_2. User stories_** <a name="stories"></a>
 
@@ -92,4 +94,4 @@ To provide insight of how the application was developed, the following sections 
 
 - Obtain API from groery stores. There are currently no open APIs from any grocery stores in Canada.
 - Add option to change currency (US / CAD) based on IP location or manual selection.
-- Provide option to easily convert user's shopping list to shopping cart.
+- Provide option to easily convert user's google or personal shopping list to shopping cart.
