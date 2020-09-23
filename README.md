@@ -16,7 +16,7 @@ A **"Driver"** gets orders assigned to them based on their availability. The div
 
 **Delivery assignments**: This APP assigns orders to Drivers by comparing Shopper's delivery availabilities (at least two days from today, starting from the closest ones) with all the Driver's delivery availability and assign orders.
 
-**Important for testing**Please choose Sep 1, 2021, as one of the Shopper's delivery availabilities for testing.
+**Important for testing**Please choose Sep 1, 2021, as one of the Shopper's delivery availabilities for testing. Alternatively, you can sign up as a Driver with inputs in your driver's delivery slots, and then test it out when you sign up again as a Shopper.
 
 ## Technologies Used
 
@@ -48,7 +48,8 @@ To provide insight of how the application was developed, the following sections 
 - Have data entities (embedded and referenced)
 - CRUD Application
 - Be deployed online
-- Project length: 4 Days
+- Project duration: 4 Days
+- Project Team: Solo Member
 
 **_2. User stories_** <a name="stories"></a>
 
